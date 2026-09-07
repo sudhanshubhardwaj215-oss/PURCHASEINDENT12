@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steelco Gujarat Ltd | Indent Approval Dashboard</title>
@@ -5022,6 +5025,13 @@ function generatePOPDF(rec){
   rec.pdfs = rec.pdfs || {};
   rec.pdfs.po = doc.output('datauristring');
   finishPdf(doc, (rec.po.poNo.replace(/\//g,'_'))+'_PurchaseOrder.pdf');
+}
+</script>
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js');
+  });
 }
 </script>
 </body>
